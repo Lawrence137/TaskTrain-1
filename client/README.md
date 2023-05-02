@@ -179,3 +179,77 @@ This section will describe the schema definitions for our database.
 | folder_id | bigint | Unique ID of the folder associated with the drop |
 | created_at | datetime | Timestamp of when the drop was created |
 | updated_at | datetime | Timestamp of when the drop was last updated |
+
+
+
+
+
+
+# users
+
+- All the registered user accounts
+
+| COLUMN | DATA TYPE | DESCRIPTION |
+| --- | --- | --- |
+| username | string | Name of the user |
+| email | string | Email address of the user |
+| password_digest | string | Hashed password of the user using `BCrypt` |
+| created_at | datetime | Timestamp of when the user was created |
+| updated_at | datetime | Timestamp of when the user was last updated |
+
+
+# drops
+
+- All the files being uploaded
+
+| COLUMN | DATA TYPE | DESCRIPTION |
+| --- | --- | --- |
+| name | string | Name of the drop |
+| user_id | bigint | Unique ID of the user associated with the drop |
+| folder_id | bigint | Unique ID of the folder associated with the drop |
+| created_at | datetime | Timestamp of when the drop was created |
+| updated_at | datetime | Timestamp of when the drop was last updated |
+
+
+
+# folders
+
+| COLUMN | DATA TYPE  | NULLABLE |
+| --- | --- | --- |
+| name | string | false |
+| user_id | bigint | false |
+| created_at | datetime | false |
+| updated_at | datetime | false |
+
+
+# active_storage_attachments
+
+| COLUMN | DATA TYPE | NULLABLE |
+| --- | --- | --- |
+| name | string | false |
+| record_type | string | false |
+| record_id | bigint | false |
+| blob_id | bigint | false |
+| created_at | datetime | false |
+
+
+# active_storage_blobs
+
+| COLUMN | DATA TYPE | NULLABLE |
+| --- | --- | --- |
+| key | string | false |
+| filename | string | false |
+| content_type | string | true |
+| metadata | text | true |
+| service_name | string | false |
+| byte_size | bigint | false |
+| checksum | string | true |
+| created_at | datetime | false |
+
+
+# active_storage_variant_records
+
+| COLUMN | DATA TYPE | NULLABLE |
+| --- | --- | --- |
+| blob_id | bigint | false |
+| variation_digest | string | false |
