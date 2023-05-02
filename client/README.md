@@ -191,7 +191,7 @@ This section will describe the schema definitions for our database.
 
 | COLUMN | DATA TYPE | DESCRIPTION |
 | --- | --- | --- |
-| username | string | Name of the user |
+| username | string | Username of the user |
 | email | string | Email address of the user |
 | password_digest | string | Hashed password of the user using `BCrypt` |
 | created_at | datetime | Timestamp of when the user was created |
@@ -214,42 +214,43 @@ This section will describe the schema definitions for our database.
 
 # folders
 
-| COLUMN | DATA TYPE  | NULLABLE |
-| --- | --- | --- |
-| name | string | false |
-| user_id | bigint | false |
-| created_at | datetime | false |
-| updated_at | datetime | false |
+| COLUMN | DATA TYPE  | NULLABLE | DESCRIPTION |
+| --- | --- | --- | --- |
+| name | string | false | Name of the folder |
+| user_id | bigint | false | ID of the user who created the folder |
+| created_at | datetime | false | Timestamp of when the folder was created |
+| updated_at | datetime | false | 	Timestamp of when the folder was last updated |
 
 
 # active_storage_attachments
 
-| COLUMN | DATA TYPE | NULLABLE |
-| --- | --- | --- |
-| name | string | false |
-| record_type | string | false |
-| record_id | bigint | false |
-| blob_id | bigint | false |
-| created_at | datetime | false |
+| COLUMN | DATA TYPE | NULLABLE | DESCRIPTION |
+| --- | --- | --- | --- |
+| name | string | false | 	Name of the attachment |
+| record_type | string | false | 	Type of record (which it is attached to) |
+| record_id | bigint | false | 	ID of the record |
+| blob_id | bigint | false |	ID of the blob |
+| created_at | datetime | false | Timestamp of when the attachment was created |
 
 
 # active_storage_blobs
 
-| COLUMN | DATA TYPE | NULLABLE |
-| --- | --- | --- |
-| key | string | false |
-| filename | string | false |
-| content_type | string | true |
-| metadata | text | true |
-| service_name | string | false |
-| byte_size | bigint | false |
-| checksum | string | true |
-| created_at | datetime | false |
+| COLUMN | DATA TYPE | NULLABLE | DESCRIPTION |
+| --- | --- | --- | --- |
+| key | string | false | 	Key of the blob |
+| filename | string | false | 	Filename of the blob |
+| content_type | string | true | 	Content type of the blob |
+| metadata | text | true | 	Metadata associated with the blob |
+| service_name | string | false | 	Name of the storage service used to store the blob |
+| byte_size | bigint | false | Size of the blob in bytes |
+| checksum | string | true | 	Checksum of the blob |
+| created_at | datetime | false | 	Timestamp of when the blob was created |
 
 
 # active_storage_variant_records
 
-| COLUMN | DATA TYPE | NULLABLE |
-| --- | --- | --- |
-| blob_id | bigint | false |
-| variation_digest | string | false |
+| COLUMN | DATA TYPE | NULLABLE | DESCRIPTION |
+| --- | --- | --- | --- |
+| blob_id | bigint | false | 	ID of the associated blob |
+| variation_digest | string | false | Digest of the variation |
+
